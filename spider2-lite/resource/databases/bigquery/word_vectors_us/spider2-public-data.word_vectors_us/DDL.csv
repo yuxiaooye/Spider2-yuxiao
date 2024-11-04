@@ -1,0 +1,29 @@
+table_name,ddl
+glove_vectors,"CREATE TABLE `spider2-public-data.word_vectors_us.glove_vectors`
+(
+  word STRING,
+  vector ARRAY<FLOAT64>
+);"
+nature,"CREATE TABLE `spider2-public-data.word_vectors_us.nature`
+(
+  abstract STRING,
+  acquisition_date DATE,
+  authors STRING,
+  category STRING,
+  citations STRING,
+  date DATE,
+  doi STRING,
+  body STRING,
+  keywords STRING,
+  link STRING,
+  organization_affiliated STRING,
+  pdf_link STRING,
+  nature_source STRING,
+  title STRING,
+  id STRING
+);"
+word_frequencies,"CREATE TABLE `spider2-public-data.word_vectors_us.word_frequencies`
+(
+  word STRING,
+  frequency INT64
+);"

@@ -1,0 +1,46 @@
+{
+    "table_name": "word_frequencies",
+    "table_fullname": "spider2-public-data.word_vectors_us.word_frequencies",
+    "column_names": [
+        "word",
+        "frequency"
+    ],
+    "column_types": [
+        "STRING",
+        "INT64"
+    ],
+    "nested_column_names": [
+        "word",
+        "frequency"
+    ],
+    "nested_column_types": [
+        "STRING",
+        "INT64"
+    ],
+    "description": [
+        null,
+        null
+    ],
+    "sample_rows": [
+        {
+            "word": "separating",
+            "frequency": 256
+        },
+        {
+            "word": "C8",
+            "frequency": 256
+        },
+        {
+            "word": "durations",
+            "frequency": 256
+        },
+        {
+            "word": "GPa",
+            "frequency": 256
+        },
+        {
+            "word": "realization",
+            "frequency": 256
+        }
+    ]
+}
