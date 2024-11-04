@@ -237,7 +237,7 @@ def evaluate_spider2sql(args):
     os.makedirs(eval_result_dir, exist_ok=True)
     
     eval_standard_dict = load_jsonl_to_dict("./gold/spider2lite_eval.jsonl")
-    spider2sql_metadata = load_json_list_to_dict("../spider2-lite.json")
+    spider2sql_metadata = load_json_list_to_dict(f"../{args.dev}.json")
 
     if mode == "sql":
         pred_ids = list(set([file.split("@")[0] for file in os.listdir(args.result_dir) if file.endswith(".sql")]))
@@ -287,6 +287,7 @@ def evaluate_spider2sql(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run evaluations for NLP models.")
+    parser.add_argument("--dev", type=str, default="spider2-lite")
     parser.add_argument("--mode", type=str, choices=["sql", "exec_result"], default='sql', help="Mode of submission results")
     parser.add_argument("--result_dir", type=str, default="spider2sql_example_submit_result", help="Result directory")
     parser.add_argument("--gold_dir", type=str, default="gold", help="Result directory")

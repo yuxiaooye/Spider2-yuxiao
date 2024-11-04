@@ -90,6 +90,7 @@ if __name__ == '__main__':
     parser.add_argument("--use_sample_rows", action="store_false", default=True)
     parser.add_argument("--use_external_knowledge", action="store_false", default=True)
     parser.add_argument("--use_few_shot", action="store_true", default=False)
+    parser.add_argument("--n_shots", type=int, default=3)
     parser.add_argument("--use_special_function", action="store_true", default=False)
     parser.add_argument("--use_plan", action="store_true", default=False)
 
