@@ -1,0 +1,19 @@
+[
+    {
+        "instance_id": "bq076",
+        "db": "bigquery-public-data.chicago_taxi_trips\nbigquery-public-data.chicago_crime",
+        "question": "Which month generally has the greatest number of motor vehicle thefts in 2016?",
+        "SQL": "SELECT\n  incidents AS highest_monthly_thefts\nFROM (\n  SELECT\n    year,\n    EXTRACT(MONTH FROM date) AS month,\n    COUNT(1) AS incidents,\n    RANK() OVER (PARTITION BY year ORDER BY COUNT(1) DESC) AS ranking\n  FROM\n    `bigquery-public-data.chicago_crime.crime`\n  WHERE\n    primary_type = 'MOTOR VEHICLE THEFT'\n    AND year = 2016\n  GROUP BY\n    year,\n    month\n)\nWHERE\n  ranking = 1\nORDER BY\n  year DESC\nLIMIT 1;",
+        "external_knowledge": null,
+        "plan": "Which month generally has the greatest number of motor vehicle thefts?\nThe following query summarizes the number of MOTOR VEHICLE THEFT incidents for each year and month, and ranks the month\u2019s total from 1 to 12. Then, the outer SELECT clause limits the final result set to the first overall ranking for each year. According to the data, in 3 of the past 10 years, December had the highest number of car thefts",
+        "special_function": [
+            "date-functions/DATE",
+            "date-functions/EXTRACT",
+            "datetime-functions/EXTRACT",
+            "interval-functions/EXTRACT",
+            "numbering-functions/RANK",
+            "time-functions/EXTRACT",
+            "timestamp-functions/EXTRACT"
+        ]
+    }
+]

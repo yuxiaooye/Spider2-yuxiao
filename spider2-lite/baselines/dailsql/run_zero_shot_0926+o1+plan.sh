@@ -14,6 +14,8 @@ python preprocessed_data/spider2_preprocess.py --dev $DEV
 python data_preprocess.py --dev $DEV 
 python generate_question.py --dev $DEV --model $LLM --tokenizer $LLM --prompt_repr SQL --k_shot 0 --comment $COMMENT \
  --use_plan
+# python generate_question.py --dev $DEV --model $LLM --tokenizer $LLM --prompt_repr SQL --k_shot 0 --comment $COMMENT \
+# --use_special_function
 python ask_llm.py --openai_api_key $OPENAI_API_KEY --model $LLM --n 1 --temperature 0 --post_mode pass@n \
  --question postprocessed_data/${COMMENT}_${DEV}_CTX-200
 
